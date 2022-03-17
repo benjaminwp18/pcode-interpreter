@@ -1,0 +1,78 @@
+:root {
+    --bg-dark: #333;
+    --bg-medium: #4D4D4D;
+    --bg-light: #555;
+    --fg-regular: #EEEEEE;
+    --fg-special: #00B295;
+}
+
+@font-face {
+    font-family: dos-font;
+    src: url(more-perfect-dos-vga.ttf);
+}
+
+* {
+    box-sizing: border-box;
+    font-family: dos-font;
+    color: var(--fg-regular);
+}
+
+body {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+
+    height: 100vh;
+    margin: 0;
+    padding: 1%;
+
+    background-color: var(--bg-dark);
+}
+
+body :not(p, div) {
+    background-color: var(--bg-light);
+    border: none;
+    margin-top: 0.5vh;
+    padding: 1vh;
+    transition: background-color 0.2s;
+}
+
+body :not(p, div):hover, body :not(p, div):focus {
+    background-color: var(--bg-medium);
+    outline: none;
+}
+
+button {
+    font-size: 1em;
+}
+
+#pcode-textarea {
+    resize: vertical;
+    width: 100%;
+    min-height: 20%;
+    max-height: 70%;
+}
+
+#console-history {
+    resize: none;
+    width: 100%;
+    flex: 1 1 auto;
+}
+
+#console-input-area {
+    width: 100%;
+
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+}
+
+#console-input {
+    flex: 1 1 auto;
+    border-right: 4px solid var(--bg-medium);
+}
+
+#console-input-button {
+    padding-left: 1%;
+    padding-right: 1%;
+}
