@@ -8,7 +8,7 @@
 
 @font-face {
     font-family: dos-font;
-    src: url(more-perfect-dos-vga.ttf);
+    src: url(more-perfect-dos-vga.ttf);  /* Zeh Fernando https://laemeur.sdf.org/fonts/ */
 }
 
 * {
@@ -29,50 +29,33 @@ body {
     background-color: var(--bg-dark);
 }
 
-body :not(p, div) {
+button, textarea, input {
     background-color: var(--bg-light);
     border: none;
     margin-top: 0.5vh;
     padding: 1vh;
     transition: background-color 0.2s;
+    outline: none;
 }
 
-body :not(p, div):hover, body :not(p, div):focus {
+button:hover, textarea:hover, body textarea:focus {
     background-color: var(--bg-medium);
-    outline: none;
 }
 
 button {
     font-size: 1em;
+    width: 50%;
 }
 
-#pcode-textarea {
+#input-textarea {
     resize: vertical;
     width: 100%;
     min-height: 20%;
     max-height: 70%;
 }
 
-#console-history {
+#output-textarea {
     resize: none;
     width: 100%;
     flex: 1 1 auto;
-}
-
-#console-input-area {
-    width: 100%;
-
-    display: flex;
-    flex-wrap: nowrap;
-    flex-direction: row;
-}
-
-#console-input {
-    flex: 1 1 auto;
-    border-right: 4px solid var(--bg-medium);
-}
-
-#console-input-button {
-    padding-left: 1%;
-    padding-right: 1%;
 }

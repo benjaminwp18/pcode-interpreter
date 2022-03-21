@@ -6,13 +6,41 @@
         <meta charset="UTF-8">
     </head>
     <body>
-        <p id="description">Here's a great description!</p>
-        <textarea id="pcode-textarea" placeholder="Enter code here"></textarea>
-        <button id="run-button">RUN</button>
-        <textarea readonly id="console-history" placeholder="Output will appear here"></textarea>
-        <div id="console-input-area">
-            <input type="text" id="console-input" placeholder="Enter program input here">
-            <button id="console-input-button">SEND</button>
+        <p id="description">Hit COMPILE to see a JS version of your PCode. START LOOP ... LOOP WHILE is not supported. JS definitely isn't the best language for this (no good synchronous input options); I chose it so you can see everything in the browser. At your own risk: press EVAL to compile to JS and run eval() on the result.</p>
+        <textarea id="input-textarea" placeholder="Enter code here"></textarea>
+        <div id="buttons-div">
+            <button id="compile-button">COMPILE</button><!--
+            --><button id="run-button">EVAL (SCARY)</button>
         </div>
+        <textarea readonly id="output-textarea" placeholder="Output will appear here"></textarea>
+
+        <script src="compiler.js"></script>
+        <script>
+            function $(id) { return document.getElementById(id); }
+
+            var inputArea = $("input-textarea");
+            var runButton = $("run-button");
+            var compileButton = $("compile-button");
+            var outputArea = $("output-textarea");
+
+            runButton.addEventListener("click", () => runCode(inputArea.value));
+            compileButton.addEventListener("click", () => compileCode(inputArea.value));
+
+            function sendOutput(output) {
+                outputArea.value += output + "\n";
+            }
+            
+            function clearOutput() {
+                outputArea.value = "";
+            }
+
+            var inputCount = 1;
+
+            function getInput() {
+                var input = prompt("Input " + (inputCount++) + ":");
+                sendOutput(" > " + input);
+                return input;
+            }
+        </script>
     </body>
 </html>
